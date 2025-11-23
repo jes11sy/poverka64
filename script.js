@@ -180,22 +180,8 @@ orderForm.addEventListener('submit', async (e) => {
         console.warn('Не удалось отправить заявку в Telegram, но форма обработана');
     }
     
-    // Show success message
-    orderForm.style.display = 'none';
-    successMessage.classList.add('active');
-    
-    // Reset form after 5 seconds
-    setTimeout(() => {
-        orderForm.reset();
-        orderForm.style.display = 'block';
-        successMessage.classList.remove('active');
-        
-        // Scroll to top of form
-        document.getElementById('form').scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }, 5000);
+    // Redirect to thanks page
+    window.location.href = '/thanks';
 });
 
 // Add animation on scroll
@@ -507,23 +493,8 @@ if (deliveryPopupForm) {
             console.warn('Не удалось отправить заявку в Telegram, но форма обработана');
         }
         
-        // Hide form and show success message
-        deliveryPopupForm.style.display = 'none';
-        deliveryPopupSuccess.classList.add('active');
-        
-        // Close popup after 3 seconds
-        setTimeout(() => {
-            deliveryPopup.classList.remove('active');
-            document.body.style.overflow = '';
-            sessionStorage.setItem('deliveryPopupShown', 'true');
-            
-            // Reset form after closing
-            setTimeout(() => {
-                deliveryPopupForm.reset();
-                deliveryPopupForm.style.display = 'block';
-                deliveryPopupSuccess.classList.remove('active');
-            }, 500);
-        }, 3000);
+        // Redirect to thanks page
+        window.location.href = '/thanks';
     });
 }
 
